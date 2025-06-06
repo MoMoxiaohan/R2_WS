@@ -1,0 +1,70 @@
+# real_robot_navigation.yaml
+ros_parameters:
+
+# 控制器频率
+  controller_frequency: 20.0  # 控制器频率（Hz）
+
+# 选择 teb_local_planner 作为本地规划器
+  base_local_planner: "teb_local_planner/TEBPlannerROS"  # 使用 TEB 本地规划器
+
+# 激光雷达配置
+  sensor_mount_frame: "laser"  # 激光雷达传感器坐标系名称
+  laser_frame: "laser"  # 激光雷达的“激光”坐标系
+  scan_topic: "/scan"  # 激光扫描数据话题
+  laser_max_range: 10.0  # 激光雷达的最大测量距离（米）
+  laser_min_range: 0.1  # 激光雷达的最小测量距离（米）
+
+# 机器人底盘的基本信息
+  base_frame: "body"  # 底盘坐标系的名称
+  robot_radius: 0.2  # 机器人半径（米）
+
+# 轮子参数
+  wheel_radius: 0.033  # 轮子半径（米）
+  wheel_separation: 0.160  # 轮距，即两个轮子之间的距离（米）
+
+# teb_local_planner 参数配置
+  teb_local_planner:
+  # 速度与加速度的限制
+    max_vel_x: 0.22  # 最大线速度（米/秒）
+    max_vel_y: 0.22  # 最大横向速度（米/秒），对于全向轮机器人，需设置
+    max_vel_theta: 2.84  # 最大角速度（弧度/秒）
+  
+  # 控制机器人运动的约束
+    acc_lim_x: 0.5  # 最大线加速度（米/秒^2）
+    acc_lim_y: 0.5  # 最大横向加速度（米/秒^2）
+    acc_lim_theta: 1.0  # 最大角加速度（弧度/秒^2）
+  
+  # 路径平滑参数
+    min_turning_radius: 0.2  # 最小转弯半径（米）
+  
+  # 优化参数
+    teb_autosize: true  # 自动调整轨迹尺寸以避免碰撞
+    obstacle_avoidance: true  # 启用障碍物避让
+
+# 路径规划的参数
+  planner_frequency: 1.0  # 规划器更新频率（Hz）
+  planner_patience: 5.0  # 规划器的耐心时间
+  planner_max_vel_x: 0.22  # 最大线速度（米/秒）
+  planner_max_vel_theta: 2.84  # 最大角速度（弧度/秒）
+
+# 机器人控制器配置
+  move_base:
+    max_velocity_x: 0.22  # 最大线速度（米/秒）
+    max_velocity_y: 0.22  # 最大横向速度（米/秒）
+    max_velocity_theta: 2.84  # 最大角速度（弧度/秒）
+
+# 地图和路径规划相关配置
+  map:
+    map_file: "/home/liu/vinci_projects/simulation_ws/src/slam_nav/maps/map1.yaml"  # 地图文件路径
+    map_resolution: 0.05  # 地图分辨率（米/像素）
+    initial_pose: 
+      x: 0.0  # 初始位姿 X 坐标（米）
+      y: 0.0  # 初始位姿 Y 坐标（米）
+      yaw: 0.0  # 初始位姿朝向（弧度）
+
+# 里程计参数
+  odometry:
+    odom_topic: "/Odometry"  # 里程计话题名称
+    odom_frequency: 50.0  # 里程计发布频率（Hz）
+    odom_frame: "camera_init"  # 里程计坐标系名称
+    base_frame: "body"  # 底盘坐标系

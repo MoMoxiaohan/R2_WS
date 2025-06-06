@@ -1,0 +1,347 @@
+[INFO] [launch]: All log files can be found below /home/vinciorin/.ros/log/2025-05-13-23-00-44-452682-ubuntu-7333
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [component_container_isolated-1]: process started with pid [7355]
+[component_container_isolated-1] [INFO] [1747148445.496650480] [nav2_container]: Load Library: /opt/ros/humble/lib/libmap_server_core.so
+[component_container_isolated-1] [INFO] [1747148445.514293840] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_map_server::CostmapFilterInfoServer>
+[component_container_isolated-1] [INFO] [1747148445.514378864] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_map_server::MapSaver>
+[component_container_isolated-1] [INFO] [1747148445.514394480] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_map_server::MapServer>
+[component_container_isolated-1] [INFO] [1747148445.514405584] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_map_server::MapServer>
+[component_container_isolated-1] [INFO] [1747148445.529680464] [map_server]: 
+[component_container_isolated-1]        map_server lifecycle node launched. 
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/map_server' in container '/nav2_container'
+[component_container_isolated-1]        Waiting on external lifecycle transitions to activate
+[component_container_isolated-1]        See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[component_container_isolated-1] [INFO] [1747148445.529798160] [map_server]: Creating
+[component_container_isolated-1] [INFO] [1747148445.535036368] [nav2_container]: Load Library: /opt/ros/humble/lib/libamcl_core.so
+[component_container_isolated-1] [INFO] [1747148445.540177424] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_amcl::AmclNode>
+[component_container_isolated-1] [INFO] [1747148445.540248080] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_amcl::AmclNode>
+[component_container_isolated-1] [INFO] [1747148445.555494480] [amcl]: 
+[component_container_isolated-1]        amcl lifecycle node launched. 
+[component_container_isolated-1]        Waiting on external lifecycle transitions to activate
+[component_container_isolated-1]        See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[component_container_isolated-1] [INFO] [1747148445.556386576] [amcl]: Creating
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/amcl' in container '/nav2_container'
+[component_container_isolated-1] [INFO] [1747148445.562269232] [nav2_container]: Load Library: /opt/ros/humble/lib/libnav2_lifecycle_manager_core.so
+[component_container_isolated-1] [INFO] [1747148445.563590960] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_lifecycle_manager::LifecycleManager>
+[component_container_isolated-1] [INFO] [1747148445.563661136] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_lifecycle_manager::LifecycleManager>
+[component_container_isolated-1] [INFO] [1747148445.577486704] [lifecycle_manager_localization]: Creating
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/lifecycle_manager_localization' in container '/nav2_container'
+[component_container_isolated-1] [INFO] [1747148445.582245200] [lifecycle_manager_localization]: Creating and initializing lifecycle service clients
+[component_container_isolated-1] [INFO] [1747148445.586820560] [lifecycle_manager_localization]: Starting managed nodes bringup...
+[component_container_isolated-1] [INFO] [1747148445.586907312] [lifecycle_manager_localization]: Configuring map_server
+[component_container_isolated-1] [INFO] [1747148445.587181424] [map_server]: Configuring
+[component_container_isolated-1] [INFO] [1747148445.587317072] [map_io]: Loading yaml file: /home/vinciorin/projects/r1_ws/install/move_plan/share/move_plan/maps/map2.yaml
+[component_container_isolated-1] [ERROR] [1747148445.587685488] [map_io]: Failed processing YAML file /home/vinciorin/projects/r1_ws/install/move_plan/share/move_plan/maps/map2.yaml at position (-1:-1) for reason: Failed to parse YAML tag 'image' for reason: invalid node; first invalid key: "image"
+[component_container_isolated-1] [ERROR] [1747148445.587742736] [map_server]: Caught exception in callback for transition 10
+[component_container_isolated-1] [ERROR] [1747148445.587765040] [map_server]: Original error: Failed to load map yaml file: /home/vinciorin/projects/r1_ws/install/move_plan/share/move_plan/maps/map2.yaml
+[component_container_isolated-1] [WARN] [1747148445.587792048] [map_server]: Error occurred while doing error handling.
+[component_container_isolated-1] [FATAL] [1747148445.587810320] [map_server]: Lifecycle node map_server does not have error state implemented
+[component_container_isolated-1] [ERROR] [1747148445.588080240] [lifecycle_manager_localization]: Failed to change state for node: map_server
+[component_container_isolated-1] [ERROR] [1747148445.588118384] [lifecycle_manager_localization]: Failed to bring up all requested nodes. Aborting bringup.
+[component_container_isolated-1] [INFO] [1747148445.600903600] [nav2_container]: Load Library: /opt/ros/humble/lib/libcontroller_server_core.so
+[component_container_isolated-1] [INFO] [1747148445.605859344] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_controller::ControllerServer>
+[component_container_isolated-1] [INFO] [1747148445.605933840] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_controller::ControllerServer>
+[component_container_isolated-1] [INFO] [1747148445.623129552] [controller_server]: 
+[component_container_isolated-1]        controller_server lifecycle node launched. 
+[component_container_isolated-1]        Waiting on external lifecycle transitions to activate
+[component_container_isolated-1]        See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[component_container_isolated-1] [INFO] [1747148445.631448464] [controller_server]: Creating controller server
+[component_container_isolated-1] [INFO] [1747148445.649842928] [local_costmap.local_costmap]: 
+[component_container_isolated-1]        local_costmap lifecycle node launched. 
+[component_container_isolated-1]        Waiting on external lifecycle transitions to activate
+[component_container_isolated-1]        See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[component_container_isolated-1] [INFO] [1747148445.650840592] [local_costmap.local_costmap]: Creating Costmap
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/controller_server' in container '/nav2_container'
+[component_container_isolated-1] [INFO] [1747148445.655728112] [nav2_container]: Load Library: /opt/ros/humble/lib/libsmoother_server_core.so
+[component_container_isolated-1] [INFO] [1747148445.658158832] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_smoother::SmootherServer>
+[component_container_isolated-1] [INFO] [1747148445.658220464] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_smoother::SmootherServer>
+[component_container_isolated-1] [INFO] [1747148445.673462480] [smoother_server]: 
+[component_container_isolated-1]        smoother_server lifecycle node launched. 
+[component_container_isolated-1]        Waiting on external lifecycle transitions to activate
+[component_container_isolated-1]        See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[component_container_isolated-1] [INFO] [1747148445.675604080] [smoother_server]: Creating smoother server
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/smoother_server' in container '/nav2_container'
+[component_container_isolated-1] [INFO] [1747148445.679276944] [nav2_container]: Load Library: /opt/ros/humble/lib/libplanner_server_core.so
+[component_container_isolated-1] [INFO] [1747148445.680502480] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_planner::PlannerServer>
+[component_container_isolated-1] [INFO] [1747148445.680549328] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_planner::PlannerServer>
+[component_container_isolated-1] [INFO] [1747148445.695475248] [planner_server]: 
+[component_container_isolated-1]        planner_server lifecycle node launched. 
+[component_container_isolated-1]        Waiting on external lifecycle transitions to activate
+[component_container_isolated-1]        See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[component_container_isolated-1] [INFO] [1747148445.697556496] [planner_server]: Creating
+[component_container_isolated-1] [INFO] [1747148445.713137808] [global_costmap.global_costmap]: 
+[component_container_isolated-1]        global_costmap lifecycle node launched. 
+[component_container_isolated-1]        Waiting on external lifecycle transitions to activate
+[component_container_isolated-1]        See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[component_container_isolated-1] [INFO] [1747148445.713836368] [global_costmap.global_costmap]: Creating Costmap
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/planner_server' in container '/nav2_container'
+[component_container_isolated-1] [INFO] [1747148445.719111248] [nav2_container]: Load Library: /opt/ros/humble/lib/libbehavior_server_core.so
+[component_container_isolated-1] [INFO] [1747148445.722932048] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<behavior_server::BehaviorServer>
+[component_container_isolated-1] [INFO] [1747148445.722998032] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<behavior_server::BehaviorServer>
+[component_container_isolated-1] [INFO] [1747148445.738798992] [behavior_server]: 
+[component_container_isolated-1]        behavior_server lifecycle node launched. 
+[component_container_isolated-1]        Waiting on external lifecycle transitions to activate
+[component_container_isolated-1]        See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/behavior_server' in container '/nav2_container'
+[component_container_isolated-1] [INFO] [1747148445.746389168] [nav2_container]: Load Library: /opt/ros/humble/lib/libbt_navigator_core.so
+[component_container_isolated-1] [INFO] [1747148445.748679632] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_bt_navigator::BtNavigator>
+[component_container_isolated-1] [INFO] [1747148445.748734288] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_bt_navigator::BtNavigator>
+[component_container_isolated-1] [INFO] [1747148445.766033136] [bt_navigator]: 
+[component_container_isolated-1]        bt_navigator lifecycle node launched. 
+[component_container_isolated-1]        Waiting on external lifecycle transitions to activate
+[component_container_isolated-1]        See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[component_container_isolated-1] [INFO] [1747148445.766139056] [bt_navigator]: Creating
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/bt_navigator' in container '/nav2_container'
+[component_container_isolated-1] [INFO] [1747148445.771225136] [nav2_container]: Load Library: /opt/ros/humble/lib/libwaypoint_follower_core.so
+[component_container_isolated-1] [INFO] [1747148445.772222960] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_waypoint_follower::WaypointFollower>
+[component_container_isolated-1] [INFO] [1747148445.772269040] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_waypoint_follower::WaypointFollower>
+[component_container_isolated-1] [INFO] [1747148445.789523344] [waypoint_follower]: 
+[component_container_isolated-1]        waypoint_follower lifecycle node launched. 
+[component_container_isolated-1]        Waiting on external lifecycle transitions to activate
+[component_container_isolated-1]        See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[component_container_isolated-1] [INFO] [1747148445.790293072] [waypoint_follower]: Creating
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/waypoint_follower' in container '/nav2_container'
+[component_container_isolated-1] [INFO] [1747148445.794331120] [nav2_container]: Load Library: /opt/ros/humble/lib/libvelocity_smoother_core.so
+[component_container_isolated-1] [INFO] [1747148445.795494768] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_velocity_smoother::VelocitySmoother>
+[component_container_isolated-1] [INFO] [1747148445.795536880] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_velocity_smoother::VelocitySmoother>
+[component_container_isolated-1] [INFO] [1747148445.813685936] [velocity_smoother]: 
+[component_container_isolated-1]        velocity_smoother lifecycle node launched. 
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/velocity_smoother' in container '/nav2_container'
+[component_container_isolated-1]        Waiting on external lifecycle transitions to activate
+[component_container_isolated-1]        See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[component_container_isolated-1] [INFO] [1747148445.817745936] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_lifecycle_manager::LifecycleManager>
+[component_container_isolated-1] [INFO] [1747148445.817810576] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_lifecycle_manager::LifecycleManager>
+[component_container_isolated-1] [INFO] [1747148445.831412368] [lifecycle_manager_navigation]: Creating
+[component_container_isolated-1] [INFO] [1747148445.835284304] [lifecycle_manager_navigation]: Creating and initializing lifecycle service clients
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/lifecycle_manager_navigation' in container '/nav2_container'
+[component_container_isolated-1] [INFO] [1747148445.854769232] [lifecycle_manager_navigation]: Starting managed nodes bringup...
+[component_container_isolated-1] [INFO] [1747148445.854900080] [lifecycle_manager_navigation]: Configuring controller_server
+[component_container_isolated-1] [INFO] [1747148445.855213552] [controller_server]: Configuring controller interface
+[component_container_isolated-1] [INFO] [1747148445.855587312] [controller_server]: getting goal checker plugins..
+[component_container_isolated-1] [INFO] [1747148445.855781328] [controller_server]: Controller frequency set to 10.0000Hz
+[component_container_isolated-1] [INFO] [1747148445.855853392] [local_costmap.local_costmap]: Configuring
+[component_container_isolated-1] [INFO] [1747148445.864763120] [local_costmap.local_costmap]: Using plugin "obstacle_layer"
+[component_container_isolated-1] [INFO] [1747148445.870077520] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[component_container_isolated-1] [INFO] [1747148445.876941840] [local_costmap.local_costmap]: Initialized plugin "obstacle_layer"
+[component_container_isolated-1] [INFO] [1747148445.877011216] [local_costmap.local_costmap]: Using plugin "voxel_layer"
+[component_container_isolated-1] [INFO] [1747148445.878499760] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[component_container_isolated-1] [INFO] [1747148445.888874064] [local_costmap.local_costmap]: Initialized plugin "voxel_layer"
+[component_container_isolated-1] [INFO] [1747148445.889133968] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[component_container_isolated-1] [INFO] [1747148445.890857936] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[component_container_isolated-1] [INFO] [1747148445.906851792] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[component_container_isolated-1] [INFO] [1747148445.909067216] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[component_container_isolated-1] [INFO] [1747148445.910050096] [controller_server]: Controller Server has general_goal_checker  goal checkers available.
+[component_container_isolated-1] [INFO] [1747148445.912980176] [controller_server]: Created controller : FollowPath of type dwb_core::DWBLocalPlanner
+[component_container_isolated-1] [INFO] [1747148445.914410320] [controller_server]: Setting transform_tolerance to 0.200000
+[component_container_isolated-1] [INFO] [1747148445.932549360] [controller_server]: Using critic "RotateToGoal" (dwb_critics::RotateToGoalCritic)
+[component_container_isolated-1] [INFO] [1747148445.933738512] [controller_server]: Critic plugin initialized
+[component_container_isolated-1] [INFO] [1747148445.934026224] [controller_server]: Using critic "Oscillation" (dwb_critics::OscillationCritic)
+[component_container_isolated-1] [INFO] [1747148445.934800368] [controller_server]: Critic plugin initialized
+[component_container_isolated-1] [INFO] [1747148445.934997776] [controller_server]: Using critic "BaseObstacle" (dwb_critics::BaseObstacleCritic)
+[component_container_isolated-1] [INFO] [1747148445.935675440] [controller_server]: Critic plugin initialized
+[component_container_isolated-1] [INFO] [1747148445.936118640] [controller_server]: Using critic "GoalAlign" (dwb_critics::GoalAlignCritic)
+[component_container_isolated-1] [INFO] [1747148445.936855504] [controller_server]: Critic plugin initialized
+[component_container_isolated-1] [INFO] [1747148445.937073392] [controller_server]: Using critic "PathAlign" (dwb_critics::PathAlignCritic)
+[component_container_isolated-1] [INFO] [1747148445.937661680] [controller_server]: Critic plugin initialized
+[component_container_isolated-1] [INFO] [1747148445.937917136] [controller_server]: Using critic "PathDist" (dwb_critics::PathDistCritic)
+[component_container_isolated-1] [INFO] [1747148445.938403088] [controller_server]: Critic plugin initialized
+[component_container_isolated-1] [INFO] [1747148445.938747536] [controller_server]: Using critic "GoalDist" (dwb_critics::GoalDistCritic)
+[component_container_isolated-1] [INFO] [1747148445.939422480] [controller_server]: Critic plugin initialized
+[component_container_isolated-1] [INFO] [1747148445.939468016] [controller_server]: Controller Server has FollowPath  controllers available.
+[component_container_isolated-1] [INFO] [1747148445.951910384] [lifecycle_manager_navigation]: Configuring smoother_server
+[component_container_isolated-1] [INFO] [1747148445.952135760] [smoother_server]: Configuring smoother server
+[component_container_isolated-1] [INFO] [1747148445.962567664] [smoother_server]: Created smoother : simple_smoother of type nav2_smoother::SimpleSmoother
+[component_container_isolated-1] [INFO] [1747148445.963986672] [smoother_server]: Smoother Server has simple_smoother  smoothers available.
+[component_container_isolated-1] [INFO] [1747148445.973490800] [lifecycle_manager_navigation]: Configuring planner_server
+[component_container_isolated-1] [INFO] [1747148445.973692720] [planner_server]: Configuring
+[component_container_isolated-1] [INFO] [1747148445.973788688] [global_costmap.global_costmap]: Configuring
+[component_container_isolated-1] [INFO] [1747148445.981943216] [global_costmap.global_costmap]: Using plugin "static_layer"
+[component_container_isolated-1] [INFO] [1747148445.983964656] [global_costmap.global_costmap]: Subscribing to the map topic (/map) with transient local durability
+[component_container_isolated-1] [INFO] [1747148445.985479920] [global_costmap.global_costmap]: Initialized plugin "static_layer"
+[component_container_isolated-1] [INFO] [1747148445.985540912] [global_costmap.global_costmap]: Using plugin "obstacle_layer"
+[component_container_isolated-1] [INFO] [1747148445.986929776] [global_costmap.global_costmap]: Subscribed to Topics: scan
+[component_container_isolated-1] [INFO] [1747148445.992386480] [global_costmap.global_costmap]: Initialized plugin "obstacle_layer"
+[component_container_isolated-1] [INFO] [1747148445.992450416] [global_costmap.global_costmap]: Using plugin "voxel_layer"
+[component_container_isolated-1] [INFO] [1747148445.994306800] [global_costmap.global_costmap]: Subscribed to Topics: scan
+[component_container_isolated-1] [INFO] [1747148446.005447184] [global_costmap.global_costmap]: Initialized plugin "voxel_layer"
+[component_container_isolated-1] [INFO] [1747148446.005525968] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[component_container_isolated-1] [INFO] [1747148446.007010256] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[component_container_isolated-1] [INFO] [1747148446.020368048] [planner_server]: Created global planner plugin GridBased of type nav2_navfn_planner/NavfnPlanner
+[component_container_isolated-1] [INFO] [1747148446.020461328] [planner_server]: Configuring plugin GridBased of type NavfnPlanner
+[component_container_isolated-1] [INFO] [1747148446.021825360] [planner_server]: Planner Server has GridBased  planners available.
+[component_container_isolated-1] [INFO] [1747148446.037809040] [lifecycle_manager_navigation]: Configuring behavior_server
+[component_container_isolated-1] [INFO] [1747148446.038039408] [behavior_server]: Configuring
+[component_container_isolated-1] [INFO] [1747148446.046913072] [behavior_server]: Creating behavior plugin spin of type nav2_behaviors/Spin
+[component_container_isolated-1] [INFO] [1747148446.048139088] [behavior_server]: Configuring spin
+[component_container_isolated-1] [INFO] [1747148446.057070992] [behavior_server]: Creating behavior plugin backup of type nav2_behaviors/BackUp
+[component_container_isolated-1] [INFO] [1747148446.058210320] [behavior_server]: Configuring backup
+[component_container_isolated-1] [INFO] [1747148446.067229424] [behavior_server]: Creating behavior plugin drive_on_heading of type nav2_behaviors/DriveOnHeading
+[component_container_isolated-1] [INFO] [1747148446.068409488] [behavior_server]: Configuring drive_on_heading
+[component_container_isolated-1] [INFO] [1747148446.076906384] [behavior_server]: Creating behavior plugin wait of type nav2_behaviors/Wait
+[component_container_isolated-1] [INFO] [1747148446.077932048] [behavior_server]: Configuring wait
+[component_container_isolated-1] [INFO] [1747148446.086361424] [lifecycle_manager_navigation]: Configuring bt_navigator
+[component_container_isolated-1] [INFO] [1747148446.086562864] [bt_navigator]: Configuring
+[component_container_isolated-1] [INFO] [1747148446.183642384] [lifecycle_manager_navigation]: Configuring waypoint_follower
+[component_container_isolated-1] [INFO] [1747148446.183981776] [waypoint_follower]: Configuring
+[component_container_isolated-1] [INFO] [1747148446.212406352] [waypoint_follower]: Created waypoint_task_executor : wait_at_waypoint of type nav2_waypoint_follower::WaitAtWaypoint
+[component_container_isolated-1] [INFO] [1747148446.214100720] [lifecycle_manager_navigation]: Configuring velocity_smoother
+[component_container_isolated-1] [INFO] [1747148446.214315024] [velocity_smoother]: Configuring velocity smoother
+[component_container_isolated-1] [INFO] [1747148446.220049328] [lifecycle_manager_navigation]: Activating controller_server
+[component_container_isolated-1] [INFO] [1747148446.220281552] [controller_server]: Activating
+[component_container_isolated-1] [INFO] [1747148446.220378416] [local_costmap.local_costmap]: Activating
+[component_container_isolated-1] [INFO] [1747148446.220507696] [local_costmap.local_costmap]: Checking transform
+[component_container_isolated-1] [INFO] [1747148446.220687056] [local_costmap.local_costmap]: start
+[component_container_isolated-1] [INFO] [1747148446.423970960] [controller_server]: Creating bond (controller_server) to lifecycle manager.
+[component_container_isolated-1] [INFO] [1747148446.534884688] [lifecycle_manager_navigation]: Server controller_server connected with bond.
+[component_container_isolated-1] [INFO] [1747148446.534976272] [lifecycle_manager_navigation]: Activating smoother_server
+[component_container_isolated-1] [INFO] [1747148446.535611280] [smoother_server]: Activating
+[component_container_isolated-1] [INFO] [1747148446.535730672] [smoother_server]: Creating bond (smoother_server) to lifecycle manager.
+[component_container_isolated-1] [INFO] [1747148446.644705072] [lifecycle_manager_navigation]: Server smoother_server connected with bond.
+[component_container_isolated-1] [INFO] [1747148446.644794864] [lifecycle_manager_navigation]: Activating planner_server
+[component_container_isolated-1] [INFO] [1747148446.645233584] [planner_server]: Activating
+[component_container_isolated-1] [INFO] [1747148446.645370416] [global_costmap.global_costmap]: Activating
+[component_container_isolated-1] [INFO] [1747148446.645418768] [global_costmap.global_costmap]: Checking transform
+[component_container_isolated-1] [INFO] [1747148446.645459824] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148447.145537168] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148447.645539728] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148448.145534448] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148448.645544112] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148449.145539376] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148449.645541680] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148450.145535248] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148450.645537232] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148451.145545328] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148451.645548944] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148452.145546000] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148452.645546096] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148453.145541776] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148453.645542672] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148454.145545584] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148454.645544720] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148455.145539728] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148455.645540528] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148456.145549712] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148456.645533072] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148457.145547280] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148457.645546576] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148458.145547184] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148458.645545104] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148459.145545456] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148459.645551248] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148460.145535952] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148460.645542800] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148461.145547920] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148461.645541936] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148462.145545648] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148462.645543600] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148463.145539632] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148463.645543696] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148464.145542992] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148464.645540816] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148465.145539376] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148465.645545456] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148466.145539504] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148466.645537936] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148467.145542800] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148467.645539760] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148468.145536304] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148468.645539568] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148469.145536912] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148469.645531184] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148470.145535888] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148470.645535120] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148471.145539184] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148471.645536880] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148472.145539952] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148472.645533616] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148473.145537456] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148473.645536912] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148474.145539632] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148474.645528592] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148475.145532016] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148475.645536848] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148476.145540144] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148476.645536784] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148477.145546032] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148477.645548432] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148478.145542576] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148478.645543184] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148479.145541104] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148479.645537840] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148480.145549584] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148480.645537936] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148481.145533712] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148481.645534480] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148482.145545680] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148482.645540816] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148483.145543728] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148483.645551312] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148484.145539440] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148484.645545200] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148485.145530096] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148485.645539792] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148486.145542448] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148486.645538768] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148487.145538384] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148487.645531536] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148488.145535088] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148488.645529712] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148489.145543280] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148489.645542864] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148490.145539952] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148490.645544208] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148491.145543312] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148491.645535344] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148492.145537808] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148492.645539760] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148493.145532784] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148493.645533968] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148494.145532528] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148494.645532368] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148495.145531632] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148495.645533200] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148496.145541456] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148496.645534320] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148497.145532624] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148497.645532400] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148498.145706320] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148498.645535504] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148499.145532464] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148499.645533040] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148500.145532880] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148500.645538608] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148501.145530672] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148501.645533776] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148502.145533680] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148502.645530896] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148503.145535920] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148503.645542736] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148504.145544272] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148504.645706704] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148505.145527312] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148505.645544080] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148506.145537648] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+^C[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[component_container_isolated-1] [INFO] [1747148506.225884720] [rclcpp]: signal_handler(signum=2)
+[component_container_isolated-1] [INFO] [1747148506.226066544] [lifecycle_manager_navigation]: Running Nav2 LifecycleManager rcl preshutdown (lifecycle_manager_navigation)
+[component_container_isolated-1] [INFO] [1747148506.645544944] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148507.145728720] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148507.645546928] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148508.145543888] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148508.645542192] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148509.145543248] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148509.645538544] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+^C[WARNING] [launch]: user interrupted with ctrl-c (SIGINT) again, ignoring...
+[component_container_isolated-1] [INFO] [1747148510.117527056] [rclcpp]: signal_handler(signum=2)
+[component_container_isolated-1] [INFO] [1747148510.145534896] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148510.645532624] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148511.145521392] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148511.645536784] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[ERROR] [component_container_isolated-1]: process[component_container_isolated-1] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[INFO] [component_container_isolated-1]: sending signal 'SIGTERM' to process[component_container_isolated-1]
+[component_container_isolated-1] [INFO] [1747148511.901806640] [rclcpp]: signal_handler(signum=15)
+[component_container_isolated-1] [INFO] [1747148512.145533488] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148512.645539952] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148513.145541136] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148513.645544464] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
+[component_container_isolated-1] [INFO] [1747148514.145542064] [global_costmap.global_costmap]: Timed out waiting for transform from aft_mapped to map to become available, tf error: Invalid frame ID "map" passed to canTransform argument target_frame - frame does not exist
