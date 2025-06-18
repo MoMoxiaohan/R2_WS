@@ -1,4 +1,5 @@
 #include "../include/ros_serial/serialport.h"
+
 SerialPort::SerialPort() :
     portName("/dev/pts/6"),
     baudRate(115200)
@@ -58,6 +59,7 @@ void SerialPort::startAsyncRead()
           for(int16_t i = 0;i < (int16_t)size;++i)
           {
             //uint8_t data_buffer = data[i];
+
 			Receive(data[i]);
             // 处理接收到的数据
           }
@@ -84,7 +86,7 @@ void SerialPort::Send_Cmd_Data(uint8_t cmd, const uint8_t* datas, uint8_t len)
 {
 
 	uint8_t buf[300], i, cnt = 0;
-	uint16_t crc16;
+	uint16_t crc16;	
 	buf[cnt++] = 0xA5;
 	buf[cnt++] = 0x5A;
 	buf[cnt++] = len;
@@ -142,18 +144,19 @@ void SerialPort::Data_Analysis(uint8_t cmd,uint8_t* datas, uint8_t len)
 	{
 	case 0x00:
 		this->data_length=len;
-		this->result_vec=this->save_data(datas,len/4);
+		// this->result_vec=this->save_data(datas,len/4);
 		// uint8_t a;
 		// memcpy(&a,datas,1);
 		// this->lower_cmd=a;
-        for(int i=0;i<(len/4);i++)
+        for(int i=0;i<len/4;i++)
         {
-			uint8_t a;
-			memcpy(&a,datas+i,1);
-			//RCLCPP_INFO(this->logger_in,"接收到的数据是：%d",a);
-			this->lower_cmd=a;
-            //std::cout<<a<<" ";
-			//datas++;
+			// uint8_t a;
+			// RCLCPP_INFO(this->logger_in,"接受到的数据是:%s",std::to_string(a).c_str());
+			// memcpy(&a,datas+i,1);
+			// this->lower_cmd=a;
+			float a;
+			memcpy(&a,datas+4*i,4);
+			RCLCPP_INFO(this->logger_in,"接收到的数据是：%.2f",a);
         }
 	
         std::cout<<std::endl;

@@ -29,4 +29,5 @@ rviz
 maps
 param
 launch
+config
 )

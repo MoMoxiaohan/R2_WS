@@ -18,7 +18,7 @@ def generate_launch_description():
     remappings = [("/tf", "tf"), ("/tf_static", "tf_static")]
 
     namespace = LaunchConfiguration("namespace")
-    use_rviz = LaunchConfiguration("rviz")
+    # use_rviz = LaunchConfiguration("rviz")
     point_lio_cfg_dir = LaunchConfiguration("point_lio_cfg_dir")
 
     point_lio_dir = get_package_share_directory("point_lio")
@@ -29,9 +29,9 @@ def generate_launch_description():
         description="Namespace for the node",
     )
 
-    declare_rviz = DeclareLaunchArgument(
-        "rviz", default_value="True", description="Flag to launch RViz."
-    )
+    # declare_rviz = DeclareLaunchArgument(
+    #     "rviz", default_value="True", description="Flag to launch RViz."
+    # )
 
     declare_point_lio_cfg_dir = DeclareLaunchArgument(
         "point_lio_cfg_dir",
@@ -48,26 +48,26 @@ def generate_launch_description():
         output="screen",
     )
 
-    start_rviz_node = Node(
-        condition=IfCondition(use_rviz),
-        package="rviz2",
-        executable="rviz2",
-        namespace=namespace,
-        name="rviz",
-        remappings=remappings,
-        arguments=[
-            "-d",
-            PathJoinSubstitution([point_lio_dir, "rviz_cfg", "loam_livox"]),
-            ".rviz",
-        ],
-    )
+    # start_rviz_node = Node(
+    #     condition=IfCondition(use_rviz),
+    #     package="rviz2",
+    #     executable="rviz2",
+    #     namespace=namespace,
+    #     name="rviz",
+    #     remappings=remappings,
+    #     arguments=[
+    #         "-d",
+    #         PathJoinSubstitution([point_lio_dir, "rviz_cfg", "loam_livox"]),
+    #         ".rviz",
+    #     ],
+    # )
 
     ld = LaunchDescription()
 
     ld.add_action(declare_namespace)
-    ld.add_action(declare_rviz)
+    # ld.add_action(declare_rviz)
     ld.add_action(declare_point_lio_cfg_dir)
     ld.add_action(start_point_lio_node)
-    ld.add_action(start_rviz_node)
+    # ld.add_action(start_rviz_node)
 
     return ld

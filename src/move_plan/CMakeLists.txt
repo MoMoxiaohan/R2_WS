@@ -18,6 +18,10 @@ add_executable(speed_couculate_node src/speed_couculate_node.cpp)
 add_executable(speed_calculate_omni_node src/speed_calculate_omni_node.cpp)
 add_executable(saved_goal_pub_node src/saved_goal_pub_node.cpp)
 add_executable(r2_pass_speed_calculate_node src/r2_pass_speed_calculate_node.cpp)
+add_executable(r2_speed_calculator_node src/r2_speed_calculator_node.cpp src/pid.cpp)
+target_include_directories(r2_speed_calculator_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/move_plan>
+  $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)
 ament_target_dependencies(
   goal_recieve_node
   "rclcpp"
@@ -56,6 +60,15 @@ ament_target_dependencies(
   "nav_msgs"
   "std_msgs"
 )
+ament_target_dependencies(
+  r2_speed_calculator_node
+  "rclcpp"
+  "geometry_msgs"
+  "tf2"
+  "tf2_ros"
+  "nav_msgs"
+  "std_msgs"
+)
 #目标点接收测试节点
 install(TARGETS goal_recieve_node
   DESTINATION lib/${PROJECT_NAME})
@@ -70,6 +83,8 @@ install(TARGETS saved_goal_pub_node
 DESTINATION lib/${PROJECT_NAME})
 #传球机器人对齐角速度计算
 install(TARGETS r2_pass_speed_calculate_node
+DESTINATION lib/${PROJECT_NAME})
+install(TARGETS r2_speed_calculator_node
 DESTINATION lib/${PROJECT_NAME})
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

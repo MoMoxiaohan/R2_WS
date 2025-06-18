@@ -163,6 +163,7 @@ private:
     {
         if(flag_now!=flag_before)
         {
+            
             now_x = msg->pose.pose.position.x;
             now_y = msg->pose.pose.position.y;
             now_w = getYawFromQuaternion(msg->pose.pose.orientation);
@@ -187,16 +188,16 @@ private:
                 //current_pose.yaw = normalizeAngleROS(current_pose.yaw + angular_z * dt);
 
                 //对于全向轮
-                // geometry_msgs::msg::Twist speed;
-                // speed.linear.x = linear_x;
-                // speed.linear.y = linear_y;
-                // speed.angular.z = angular_z;
+                geometry_msgs::msg::Twist speed;
+                speed.linear.x = linear_x;
+                speed.linear.y = linear_y;
+                speed.angular.z = angular_z;
 
                 //对于差速模型
-                geometry_msgs::msg::Twist speed;
-                speed.linear.x = linear_x*cos(now_w)+linear_y*sin(now_w);
-                speed.linear.y = linear_y*cos(now_w)-linear_x*sin(now_w);
-                speed.angular.z = angular_z;
+                // geometry_msgs::msg::Twist speed;
+                // speed.linear.x = linear_x*cos(now_w)+linear_y*sin(now_w);
+                // speed.linear.y = linear_y*cos(now_w)-linear_x*sin(now_w);
+                // speed.angular.z = angular_z;
 
                 RCLCPP_INFO(this->get_logger(),"发布速度信息：%.2f,%.2f,%.2f",speed.linear.x,speed.linear.y,speed.angular.z);
                 // 发布速度数据

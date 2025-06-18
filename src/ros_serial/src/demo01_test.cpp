@@ -49,20 +49,19 @@ public:
     {
         //初始化所有已经记录的点
         this->poses[0].x=0;this->poses[0].y=0;this->poses[0].w=0;
-        this->poses[1].x=1;this->poses[1].y=1;this->poses[1].w=0;
-        this->poses[2].x=2;this->poses[2].y=2;this->poses[2].w=0;
+        this->poses[1].x=1;this->poses[1].y=-1;this->poses[1].w=0;
+        this->poses[2].x=3;this->poses[2].y=-3;this->poses[2].w=0;
         this->poses[3].x=2;this->poses[3].y=4;this->poses[3].w=0;
         this->poses[4].x=2;this->poses[4].y=6;this->poses[4].w=0;
         this->poses[5].x=3;this->poses[5].y=4;this->poses[5].w=0;
         this->poses[6].x=3;this->poses[6].y=6;this->poses[6].w=0;
-       
         SerialPort1=std::make_shared<SerialPort>();
-        SerialPort1->init("/dev/pts/5", 115200);
-        publisher_=this->create_publisher<geometry_msgs::msg::PoseStamped>("/goal_pose",10);
+        SerialPort1->init("/dev/Lowerport", 115200);
+        publisher_=this->create_publisher<geometry_msgs::msg::PoseStamped>("/r2/goal_pose",10);
         transmit_timer_ = this->create_wall_timer(
             std::chrono::milliseconds(100),
             std::bind(&SerialNode::send_message_timer_callback, this));
-        Subscription_ = this->create_subscription<geometry_msgs::msg::Twist>("/cmd_vel", 10,
+        Subscription_ = this->create_subscription<geometry_msgs::msg::Twist>("/r2/cmd_vel", 10,
             std::bind(&SerialNode::speed_recieve_callback, this, std::placeholders::_1));
         SerialPort1->startAsyncRead();
     }
@@ -87,45 +86,44 @@ private:
     }
     void send_message_timer_callback()
     {
-        float2array(this->test_num1,this->test_num2,this->test_num3,data);
-        test_num1+=0.3;
-        test_num2+=0.3;
-        test_num3+=0.3;
-        RCLCPP_INFO(this->get_logger(),"发送的数据是:%.2f %.2f %.2f",this->test_num1,this->test_num2,this->test_num3);
+        float2array(this->liner_x,this->liner_y,this->angular_z,data);
+        RCLCPP_INFO(this->get_logger(),"发送的数据是:%.2f %.2f %.2f",this->liner_x,this->liner_y,this->angular_z);
         SerialPort1->Send_Cmd_Data(0,data,12);
+        RCLCPP_INFO(this->get_logger(),"现在的指令是 %d",this->flag);
         //导航状态机
         if(SerialPort1->got_cmd()!=this->flag)
         {
             this->flag=SerialPort1->got_cmd();
+            switch(flag)
+            {
+                case 20:
+                    break;
+                case 1:
+                    pub_func(0);
+                    break;
+                case 2:
+                    pub_func(1);
+                    break;
+                case 3:
+                    pub_func(2);
+                    break;
+                case 4:
+                    pub_func(3);
+                    break;
+                case 5:
+                    pub_func(4);
+                    break;
+                case 6:
+                    pub_func(5);
+                    break;
+                case 7:
+                    pub_func(6);
+                    break;
+                default:
+                    break;
+            }
         }
-        switch(flag)
-        {
-            case 20:
-                break;
-            case 0:
-                pub_func(0);
-                break;
-            case 1:
-                pub_func(1);
-                break;
-            case 2:
-                pub_func(2);
-                break;
-            case 3:
-                pub_func(3);
-                break;
-            case 4:
-                pub_func(4);
-                break;
-            case 5:
-                pub_func(5);
-                break;
-            case 6:
-                pub_func(6);
-                break;
-            default:
-                break;
-        }
+        
     }
     std::shared_ptr<SerialPort> SerialPort1;
     rclcpp::TimerBase::SharedPtr transmit_timer_;
