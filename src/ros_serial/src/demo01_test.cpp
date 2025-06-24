@@ -4,9 +4,21 @@
 #include <chrono>
 #include <cstdint>
 #include <string>
-#include"geometry_msgs/msg/pose_stamped.hpp"
+#include "geometry_msgs/msg/pose_stamped.hpp"
 #include "tf2/LinearMath/Quaternion.h"
 #include "tf2/LinearMath/Matrix3x3.h"
+#include "std_msgs/msg/float32.hpp"
+// 枚举协议
+typedef enum 
+{
+    ASK_FIXED_POS_LAUNCH_SPEED = 0x01,//1请求定点投篮
+    ALLOW_FIXED_LAUNCH =0x02,                  //2上位机返回定点投篮发射参数（Vx，Vy，Vomega，speed_rpm)
+    ASK_CATCH_BALL=0x03,//3
+    ALLOW_CATCH_BALL=0x04,//4
+    ASK_HANDOFF=0x05,//5
+    ALLOW_HANDOFF=0x06,//6                         
+    UPPER_OK = 0xff   //7                   //上位机收到请求(可以不用)
+}CMD_PACKAGE;
 float getYawFromQuaternion(const geometry_msgs::msg::Quaternion &quat)
 {
     tf2::Quaternion tf_quat(
@@ -32,51 +44,41 @@ geometry_msgs::msg::Quaternion createQuaternionFromYaw(float yaw)
     quat.w = tf_quat.w();
     return quat;
 }
-typedef struct pose
+void float2array(float num1, float num2, float num3, float num4, uint8_t *array)
 {
-    float x,y,w;
-}pose;
-void float2array(float num1,float num2,float num3,uint8_t*array)
-{
-    memcpy(array,&num1,4);
-    memcpy(array+4,&num2,4);
-    memcpy(array+8,&num3,4);
+    memcpy(array, &num1, 4);
+    memcpy(array + 4, &num2, 4);
+    memcpy(array + 8, &num3, 4);
+    memcpy(array + 12, &num4, 4);
 }
 class SerialNode : public rclcpp::Node
 {
 public:
     SerialNode() : Node("serial_node")
     {
-        //初始化所有已经记录的点
-        this->poses[0].x=0;this->poses[0].y=0;this->poses[0].w=0;
-        this->poses[1].x=1;this->poses[1].y=-1;this->poses[1].w=0;
-        this->poses[2].x=3;this->poses[2].y=-3;this->poses[2].w=0;
-        this->poses[3].x=2;this->poses[3].y=4;this->poses[3].w=0;
-        this->poses[4].x=2;this->poses[4].y=6;this->poses[4].w=0;
-        this->poses[5].x=3;this->poses[5].y=4;this->poses[5].w=0;
-        this->poses[6].x=3;this->poses[6].y=6;this->poses[6].w=0;
-        SerialPort1=std::make_shared<SerialPort>();
+        SerialPort1 = std::make_shared<SerialPort>();
         SerialPort1->init("/dev/Lowerport", 115200);
-        publisher_=this->create_publisher<geometry_msgs::msg::PoseStamped>("/r2/goal_pose",10);
+   
         transmit_timer_ = this->create_wall_timer(
-            std::chrono::milliseconds(100),
+            std::chrono::milliseconds(10),
             std::bind(&SerialNode::send_message_timer_callback, this));
         Subscription_ = this->create_subscription<geometry_msgs::msg::Twist>("/r2/cmd_vel", 10,
-            std::bind(&SerialNode::speed_recieve_callback, this, std::placeholders::_1));
+                                                                             std::bind(&SerialNode::speed_recieve_callback, this, std::placeholders::_1));
+        Subscription_2 = this->create_subscription<std_msgs::msg::Float32>("/r2/omega", 10,
+                                                                           std::bind(&SerialNode::pass_omega_callback, this, std::placeholders::_1));
+        Subscription_3 = this->create_subscription<std_msgs::msg::Float32>("/r2/rpm", 10,
+                                                                           std::bind(&SerialNode::rpm_callback, this, std::placeholders::_1));
+        Subscription_4 = this->create_subscription<std_msgs::msg::Float32>("/r2/aim_omega", 10,
+                                                                            std::bind(&SerialNode::aim_omega_callback, this, std::placeholders::_1));
         SerialPort1->startAsyncRead();
     }
 
 private:
-    void pub_func(int num)
-    {
-        geometry_msgs::msg::PoseStamped real_pose;
-        real_pose.pose.position.x=poses[num].x;
-        real_pose.pose.position.y=poses[num].y;
-        real_pose.pose.orientation=createQuaternionFromYaw(poses[num].w);
-        publisher_->publish(real_pose);
-        RCLCPP_INFO(this->get_logger(),"成功发布目标点%.2f,%.2f,%.2f",real_pose.pose.position.x,real_pose.pose.position.y
-        ,getYawFromQuaternion(real_pose.pose.orientation));
 
+
+    void pass_omega_callback(std_msgs::msg::Float32::SharedPtr msg2)
+    {
+        this->pass_omega = msg2->data;
     }
     void speed_recieve_callback(geometry_msgs::msg::Twist::SharedPtr msg)
     {
@@ -84,56 +86,62 @@ private:
         this->liner_y = float(msg->linear.y);
         this->angular_z = float(msg->angular.z);
     }
+    void rpm_callback(std_msgs::msg::Float32::SharedPtr msg3)
+    {
+        this->rpm=msg3->data;
+    }
+    void aim_omega_callback(std_msgs::msg::Float32::SharedPtr msg4)
+    {
+        this->aim_omega=msg4->data;
+    }
     void send_message_timer_callback()
     {
-        float2array(this->liner_x,this->liner_y,this->angular_z,data);
-        RCLCPP_INFO(this->get_logger(),"发送的数据是:%.2f %.2f %.2f",this->liner_x,this->liner_y,this->angular_z);
-        SerialPort1->Send_Cmd_Data(0,data,12);
-        RCLCPP_INFO(this->get_logger(),"现在的指令是 %d",this->flag);
-        //导航状态机
-        if(SerialPort1->got_cmd()!=this->flag)
+        // 导航状态机
+        this->flag = SerialPort1->got_cmd();
+        switch (flag)
         {
-            this->flag=SerialPort1->got_cmd();
-            switch(flag)
-            {
-                case 20:
-                    break;
-                case 1:
-                    pub_func(0);
-                    break;
-                case 2:
-                    pub_func(1);
-                    break;
-                case 3:
-                    pub_func(2);
-                    break;
-                case 4:
-                    pub_func(3);
-                    break;
-                case 5:
-                    pub_func(4);
-                    break;
-                case 6:
-                    pub_func(5);
-                    break;
-                case 7:
-                    pub_func(6);
-                    break;
-                default:
-                    break;
-            }
+        case 20:
+            break;
+        case ASK_FIXED_POS_LAUNCH_SPEED:
+            float2array(this->liner_x, this->liner_y, this->angular_z, this->rpm, data_auto);
+            RCLCPP_INFO(this->get_logger(), "发送的数据是:%.2f %.2f %.2f %.2f", this->liner_x, this->liner_y, this->angular_z,this->rpm);
+            SerialPort1->Send_Cmd_Data(ALLOW_FIXED_LAUNCH, data_auto, 16);
+            RCLCPP_INFO(this->get_logger(), "现在的指令是 %d", this->flag);
+            break;
+        case ASK_CATCH_BALL:
+            // memcpy(data_pass,&this->pass_omega,4);
+            float2array(0,0,this->aim_omega,this->pass_omega,data_auto);
+            SerialPort1->Send_Cmd_Data(ALLOW_CATCH_BALL,data_auto,16);
+            RCLCPP_INFO(this->get_logger(),"现在的指令是%d",this->flag);
+            RCLCPP_INFO(this->get_logger(),"发送的数据是：%.2f,%.2f",this->aim_omega,this->pass_omega);
+            break;
+        case ASK_HANDOFF:
+            //memcpy(data_pass,&this->pass_omega,4);
+            float2array(this->pass_omega,0,0,0,data_auto);
+            SerialPort1->Send_Cmd_Data(ALLOW_HANDOFF,data_auto,16);
+            RCLCPP_INFO(this->get_logger(),"发送的数据是：%.2f",this->pass_omega);
+            break;
+        case UPPER_OK:
+            break;
+        default:
+            break;
         }
-        
     }
+
     std::shared_ptr<SerialPort> SerialPort1;
     rclcpp::TimerBase::SharedPtr transmit_timer_;
     rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr Subscription_;
-    rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr publisher_;
-    uint8_t data[12];
+    rclcpp::Subscription<std_msgs::msg::Float32>::SharedPtr Subscription_2;
+    rclcpp::Subscription<std_msgs::msg::Float32>::SharedPtr Subscription_3;
+    rclcpp::Subscription<std_msgs::msg::Float32>::SharedPtr Subscription_4;
+    uint8_t data_auto[16];
+    uint8_t data_pass[4];
     float liner_x = 0, liner_y = 0, angular_z = 0;
-    float test_num1=0,test_num2=0,test_num3=0;
+    float test_num1 = 0, test_num2 = 0, test_num3 = 0;
+    float pass_omega = 0;
+    float rpm=0;
     int flag = 0;
-    pose poses[10];
+    float aim_omega=0;
 };
 int main(int argc, char **argv)
 {

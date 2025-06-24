@@ -1,16 +1,6 @@
 #include "pid.h"
 #include <math.h>
 
-/**
- * @brief       PID核心初始化
- * @param       pid：PID参数及数据存放的句柄
- * @param       mode：PID模式，为枚举@PID_MODE
- * @param       PID[3]：Kpid三个参数的数组，可直接填其首地址
- * @param       max_out：总输出限幅
- * @param       max_iout：积分限幅
- * @retval      void
- * @note        在这个函数中，@pid_type_def句柄是被赋予了参数，包括PID模式等6个参数
- */
 void PID_Controller::CORE::PID_Init(pid_type_def *pid, uint8_t mode, const fp32 PID[3], fp32 max_out, fp32 max_iout,fp32 deadband_threshold)
 {
     if (pid == 0 || PID == 0)
@@ -29,14 +19,6 @@ void PID_Controller::CORE::PID_Init(pid_type_def *pid, uint8_t mode, const fp32 
     pid->deadband_threshold = deadband_threshold;
 }
 
-/**
- * @brief       PID核心计算函数
- * @param       pid：PID参数及数据存放的句柄
- * @param       ref：反馈值
- * @param       set：期望值(目标值)
- * @retval      fp32输出值
- * @note        该函数计算的中间值与结果都将保存到@pid_type_def句柄中。
- */
 fp32 PID_Controller::CORE::PID_Calc(pid_type_def *pid, fp32 ref, fp32 set)
 {
     if (pid == 0)
@@ -83,13 +65,6 @@ fp32 PID_Controller::CORE::PID_Calc(pid_type_def *pid, fp32 ref, fp32 set)
     return pid->out;
 }
 
-
-/**
- * @brief       PID清0函数
- * @param       pid：PID参数及数据存放的句柄
- * @retval      void
- * @note        该函数是是把@pid_type_def句柄的所有成员变量清零。
- */
 void PID_Controller::CORE::PID_Clear(pid_type_def *pid)
 {
     if (pid == 0)

@@ -17,9 +17,12 @@ add_executable(goal_recieve_node src/goal_recieve_node.cpp)
 add_executable(speed_couculate_node src/speed_couculate_node.cpp)
 add_executable(speed_calculate_omni_node src/speed_calculate_omni_node.cpp)
 add_executable(saved_goal_pub_node src/saved_goal_pub_node.cpp)
-add_executable(r2_pass_speed_calculate_node src/r2_pass_speed_calculate_node.cpp)
+add_executable(r2_pass_speed_calculate_node src/r2_pass_speed_calculate_node.cpp src/pid.cpp)
 add_executable(r2_speed_calculator_node src/r2_speed_calculator_node.cpp src/pid.cpp)
 target_include_directories(r2_speed_calculator_node PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/move_plan>
+  $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)
+target_include_directories(r2_pass_speed_calculate_node PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/move_plan>
   $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)
 ament_target_dependencies(

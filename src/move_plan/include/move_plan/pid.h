@@ -68,6 +68,9 @@ class PID_Controller
 			
 				fp32 Pos_X_Realize(fp32 set_pos_x);
 				fp32 Pos_Y_Realize(fp32 set_pos_y);
+                fp32 Pass_W1(fp32 set_angle,fp32 now_angle);
+                fp32 Pass_W2(fp32 set_angle,fp32 now_angle);
+                fp32 aim_r2(fp32 set_angle,fp32 now_angle);
                 float Now_Pos_X=0,Now_Pos_Y=0,Now_Pos_Yaw=0;
 		}sensors;
     
